@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		09B3C6B027B784B5008DDEAE /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 09B3C6AF27B784B5008DDEAE /* main.c */; };
+		09B3C6B927B78C5F008DDEAE /* libSDL2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 09B3C6B727B78C5F008DDEAE /* libSDL2.a */; };
+		09B3C6BA27B78C5F008DDEAE /* libSDL2main.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 09B3C6B827B78C5F008DDEAE /* libSDL2main.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +27,8 @@
 /* Begin PBXFileReference section */
 		09B3C6AC27B784B5008DDEAE /* Pong */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Pong; sourceTree = BUILT_PRODUCTS_DIR; };
 		09B3C6AF27B784B5008DDEAE /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		09B3C6B727B78C5F008DDEAE /* libSDL2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libSDL2.a; path = ../../../../usr/local/Cellar/sdl2/2.0.14_1/lib/libSDL2.a; sourceTree = "<group>"; };
+		09B3C6B827B78C5F008DDEAE /* libSDL2main.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libSDL2main.a; path = ../../../../usr/local/Cellar/sdl2/2.0.14_1/lib/libSDL2main.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +36,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				09B3C6B927B78C5F008DDEAE /* libSDL2.a in Frameworks */,
+				09B3C6BA27B78C5F008DDEAE /* libSDL2main.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -43,6 +49,7 @@
 			children = (
 				09B3C6AE27B784B5008DDEAE /* Pong */,
 				09B3C6AD27B784B5008DDEAE /* Products */,
+				09B3C6B627B78C5F008DDEAE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -60,6 +67,15 @@
 				09B3C6AF27B784B5008DDEAE /* main.c */,
 			);
 			path = Pong;
+			sourceTree = "<group>";
+		};
+		09B3C6B627B78C5F008DDEAE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				09B3C6B727B78C5F008DDEAE /* libSDL2.a */,
+				09B3C6B827B78C5F008DDEAE /* libSDL2main.a */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -239,6 +255,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				HEADER_SEARCH_PATHS = /usr/local/include;
+				LIBRARY_SEARCH_PATHS = (
+					/usr/local/lib,
+					/usr/local/Cellar/sdl2/2.0.14_1/lib,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = net.kajitetsushi.Pong;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -247,6 +269,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				HEADER_SEARCH_PATHS = /usr/local/include;
+				LIBRARY_SEARCH_PATHS = (
+					/usr/local/lib,
+					/usr/local/Cellar/sdl2/2.0.14_1/lib,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = net.kajitetsushi.Pong;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

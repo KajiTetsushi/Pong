@@ -12,7 +12,7 @@
 *.map
 *.exp
 
-# Precompiled Headers
+# Precompiled headers
 *.gch
 *.pch
 
@@ -50,3 +50,9 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+
+# Xcode 
+Pong.xcodeproj/*.mode*
+Pong.xcodeproj/*.pbxuser
+Pong.xcodeproj/project.xcworkspace/xcuserdata/
+Pong.xcodeproj/xcuserdata/
