@@ -29,6 +29,7 @@
 		09B3C6AF27B784B5008DDEAE /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		09B3C6B727B78C5F008DDEAE /* libSDL2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libSDL2.a; path = ../../../../usr/local/Cellar/sdl2/2.0.14_1/lib/libSDL2.a; sourceTree = "<group>"; };
 		09B3C6B827B78C5F008DDEAE /* libSDL2main.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libSDL2main.a; path = ../../../../usr/local/Cellar/sdl2/2.0.14_1/lib/libSDL2main.a; sourceTree = "<group>"; };
+		09B3C6FE27C29B62008DDEAE /* pong.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pong.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +65,7 @@
 		09B3C6AE27B784B5008DDEAE /* Pong */ = {
 			isa = PBXGroup;
 			children = (
+				09B3C6D627C2748B008DDEAE /* pong */,
 				09B3C6AF27B784B5008DDEAE /* main.c */,
 			);
 			path = Pong;
@@ -76,6 +78,14 @@
 				09B3C6B827B78C5F008DDEAE /* libSDL2main.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		09B3C6D627C2748B008DDEAE /* pong */ = {
+			isa = PBXGroup;
+			children = (
+				09B3C6FE27C29B62008DDEAE /* pong.h */,
+			);
+			path = pong;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
