@@ -10,6 +10,11 @@
 		09B3C6B027B784B5008DDEAE /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 09B3C6AF27B784B5008DDEAE /* main.c */; };
 		09B3C6B927B78C5F008DDEAE /* libSDL2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 09B3C6B727B78C5F008DDEAE /* libSDL2.a */; };
 		09B3C6BA27B78C5F008DDEAE /* libSDL2main.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 09B3C6B827B78C5F008DDEAE /* libSDL2main.a */; };
+		09B3C70D27C2AF6F008DDEAE /* p_game.c in Sources */ = {isa = PBXBuildFile; fileRef = 09B3C70C27C2AF6F008DDEAE /* p_game.c */; };
+		09B3C71B27C2B2FE008DDEAE /* p_renderer.c in Sources */ = {isa = PBXBuildFile; fileRef = 09B3C71A27C2B2FE008DDEAE /* p_renderer.c */; };
+		09B3C71D27C2B357008DDEAE /* p_scene.c in Sources */ = {isa = PBXBuildFile; fileRef = 09B3C71C27C2B357008DDEAE /* p_scene.c */; };
+		09B3C71F27C2B38E008DDEAE /* p_subsystems.c in Sources */ = {isa = PBXBuildFile; fileRef = 09B3C71E27C2B38E008DDEAE /* p_subsystems.c */; };
+		09B3C72127C2B3B2008DDEAE /* p_window.c in Sources */ = {isa = PBXBuildFile; fileRef = 09B3C72027C2B3B1008DDEAE /* p_window.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -29,6 +34,13 @@
 		09B3C6AF27B784B5008DDEAE /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		09B3C6B727B78C5F008DDEAE /* libSDL2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libSDL2.a; path = ../../../../usr/local/Cellar/sdl2/2.0.14_1/lib/libSDL2.a; sourceTree = "<group>"; };
 		09B3C6B827B78C5F008DDEAE /* libSDL2main.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libSDL2main.a; path = ../../../../usr/local/Cellar/sdl2/2.0.14_1/lib/libSDL2main.a; sourceTree = "<group>"; };
+		09B3C6FE27C29B62008DDEAE /* pong.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pong.h; sourceTree = "<group>"; };
+		09B3C70C27C2AF6F008DDEAE /* p_game.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = p_game.c; sourceTree = "<group>"; };
+		09B3C71A27C2B2FE008DDEAE /* p_renderer.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = p_renderer.c; sourceTree = "<group>"; };
+		09B3C71C27C2B357008DDEAE /* p_scene.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = p_scene.c; sourceTree = "<group>"; };
+		09B3C71E27C2B38E008DDEAE /* p_subsystems.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = p_subsystems.c; sourceTree = "<group>"; };
+		09B3C72027C2B3B1008DDEAE /* p_window.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = p_window.c; sourceTree = "<group>"; };
+		09B3C72227C2B945008DDEAE /* pong_internal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = pong_internal.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +76,7 @@
 		09B3C6AE27B784B5008DDEAE /* Pong */ = {
 			isa = PBXGroup;
 			children = (
+				09B3C6D627C2748B008DDEAE /* pong */,
 				09B3C6AF27B784B5008DDEAE /* main.c */,
 			);
 			path = Pong;
@@ -76,6 +89,20 @@
 				09B3C6B827B78C5F008DDEAE /* libSDL2main.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		09B3C6D627C2748B008DDEAE /* pong */ = {
+			isa = PBXGroup;
+			children = (
+				09B3C70C27C2AF6F008DDEAE /* p_game.c */,
+				09B3C71A27C2B2FE008DDEAE /* p_renderer.c */,
+				09B3C71C27C2B357008DDEAE /* p_scene.c */,
+				09B3C71E27C2B38E008DDEAE /* p_subsystems.c */,
+				09B3C72027C2B3B1008DDEAE /* p_window.c */,
+				09B3C6FE27C29B62008DDEAE /* pong.h */,
+				09B3C72227C2B945008DDEAE /* pong_internal.h */,
+			);
+			path = pong;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,6 +162,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				09B3C70D27C2AF6F008DDEAE /* p_game.c in Sources */,
+				09B3C71B27C2B2FE008DDEAE /* p_renderer.c in Sources */,
+				09B3C71D27C2B357008DDEAE /* p_scene.c in Sources */,
+				09B3C71F27C2B38E008DDEAE /* p_subsystems.c in Sources */,
+				09B3C72127C2B3B2008DDEAE /* p_window.c in Sources */,
 				09B3C6B027B784B5008DDEAE /* main.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
