@@ -40,6 +40,7 @@
 		09B3C71C27C2B357008DDEAE /* p_scene.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = p_scene.c; sourceTree = "<group>"; };
 		09B3C71E27C2B38E008DDEAE /* p_subsystems.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = p_subsystems.c; sourceTree = "<group>"; };
 		09B3C72027C2B3B1008DDEAE /* p_window.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = p_window.c; sourceTree = "<group>"; };
+		09B3C72227C2B945008DDEAE /* pong_internal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = pong_internal.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +100,7 @@
 				09B3C71E27C2B38E008DDEAE /* p_subsystems.c */,
 				09B3C72027C2B3B1008DDEAE /* p_window.c */,
 				09B3C6FE27C29B62008DDEAE /* pong.h */,
+				09B3C72227C2B945008DDEAE /* pong_internal.h */,
 			);
 			path = pong;
 			sourceTree = "<group>";

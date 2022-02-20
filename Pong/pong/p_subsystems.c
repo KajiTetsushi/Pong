@@ -6,7 +6,7 @@
 //  Copyright © 2022 Kaji Tetsushi. All rights reserved.
 //
 
-#include "pong.h"
+#include "pong_internal.h"
 
 bool p_subsystems_initializeSubsystems(void) {
     return SDL_Init(SDL_INIT_VIDEO) == 0;

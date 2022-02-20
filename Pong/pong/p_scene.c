@@ -6,7 +6,7 @@
 //  Copyright © 2022 Kaji Tetsushi. All rights reserved.
 //
 
-#include "pong.h"
+#include "pong_internal.h"
 
 const int P_SCENE_R = 0;
 const int P_SCENE_G = 0;

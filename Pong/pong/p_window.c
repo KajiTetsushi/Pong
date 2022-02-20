@@ -6,7 +6,7 @@
 //  Copyright © 2022 Kaji Tetsushi. All rights reserved.
 //
 
-#include "pong.h"
+#include "pong_internal.h"
 
 SDL_Window *window;
 
