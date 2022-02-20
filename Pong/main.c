@@ -33,7 +33,7 @@ int main(int argc, const char * argv[]) {
         lastTick = currentTick;
     }
     
-    p_subsystems_destroySubsystems();
+    p_game_shutdownGame();
 
     return 0;
 }
