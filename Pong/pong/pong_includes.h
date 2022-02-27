@@ -10,7 +10,6 @@
 #define pong_includes_h
 
 #include <SDL2/SDL.h>
-#include <stdbool.h>
-#include <stdio.h>
+#include "core.h"
 
 #endif /* pong_includes_h */
