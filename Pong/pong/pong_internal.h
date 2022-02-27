@@ -24,4 +24,6 @@ extern void p_scene_runWithBackground(const float timeElapsed, void (*onSceneRea
 extern bool p_subsystems_initializeSubsystems(void);
 extern void p_subsystems_destroySubsystems(void);
 
+// TODO: Use window dimensions as map boundaries for game objects. See p_window.c
+
 #endif /* pong_internal_h */
