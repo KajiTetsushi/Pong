@@ -16,6 +16,7 @@
 		09B3C71F27C2B38E008DDEAE /* p_subsystems.c in Sources */ = {isa = PBXBuildFile; fileRef = 09B3C71E27C2B38E008DDEAE /* p_subsystems.c */; };
 		09B3C72127C2B3B2008DDEAE /* p_window.c in Sources */ = {isa = PBXBuildFile; fileRef = 09B3C72027C2B3B1008DDEAE /* p_window.c */; };
 		09B3C73027CBDB31008DDEAE /* c_color.c in Sources */ = {isa = PBXBuildFile; fileRef = 09B3C72F27CBDB31008DDEAE /* c_color.c */; };
+		09B3C73627CBE5B3008DDEAE /* c_rng.c in Sources */ = {isa = PBXBuildFile; fileRef = 09B3C73527CBE5B3008DDEAE /* c_rng.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -46,6 +47,9 @@
 		09B3C72A27CBAECE008DDEAE /* core.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = core.h; sourceTree = "<group>"; };
 		09B3C72E27CBDB31008DDEAE /* c_color.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = c_color.h; sourceTree = "<group>"; };
 		09B3C72F27CBDB31008DDEAE /* c_color.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = c_color.c; sourceTree = "<group>"; };
+		09B3C73427CBE5B3008DDEAE /* c_rng.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = c_rng.h; sourceTree = "<group>"; };
+		09B3C73527CBE5B3008DDEAE /* c_rng.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = c_rng.c; sourceTree = "<group>"; };
+		09B3C73827CBE890008DDEAE /* core_includes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = core_includes.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,7 +121,10 @@
 			children = (
 				09B3C72F27CBDB31008DDEAE /* c_color.c */,
 				09B3C72E27CBDB31008DDEAE /* c_color.h */,
+				09B3C73527CBE5B3008DDEAE /* c_rng.c */,
+				09B3C73427CBE5B3008DDEAE /* c_rng.h */,
 				09B3C72A27CBAECE008DDEAE /* core.h */,
+				09B3C73827CBE890008DDEAE /* core_includes.h */,
 			);
 			path = core;
 			sourceTree = "<group>";
@@ -180,6 +187,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				09B3C73027CBDB31008DDEAE /* c_color.c in Sources */,
+				09B3C73627CBE5B3008DDEAE /* c_rng.c in Sources */,
 				09B3C70D27C2AF6F008DDEAE /* p_game.c in Sources */,
 				09B3C71B27C2B2FE008DDEAE /* p_renderer.c in Sources */,
 				09B3C71D27C2B357008DDEAE /* p_scene.c in Sources */,

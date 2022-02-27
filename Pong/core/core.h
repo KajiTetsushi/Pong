@@ -9,6 +9,8 @@
 #ifndef core_h
 #define core_h
 
+#include "core_includes.h"
 #include "c_color.h"
+#include "c_rng.h"
 
 #endif /* core_h */
