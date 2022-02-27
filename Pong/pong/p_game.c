@@ -33,6 +33,8 @@ bool p_game_initializeGame(void) {
         return false;
     }
     
+    // TODO: Initialize game state, i.e. place ball at center, place players in opposing sides, etc.
+    
     return true;
 }
 
