@@ -12,5 +12,6 @@
 #include "core_includes.h"
 #include "c_color.h"
 #include "c_rng.h"
+#include "c_vector2.h"
 
 #endif /* core_h */
