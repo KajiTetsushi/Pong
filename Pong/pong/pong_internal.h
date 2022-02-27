@@ -9,7 +9,7 @@
 #ifndef pong_internal_h
 #define pong_internal_h
 
-#include "pong.h"
+#include "pong_includes.h"
 
 SDL_Renderer * p_renderer_getRenderer(void);
 extern void p_renderer_destroyRenderer(void);
