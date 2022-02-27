@@ -9,9 +9,7 @@
 #ifndef pong_h
 #define pong_h
 
-#include <SDL2/SDL.h>
-#include <stdbool.h>
-#include <stdio.h>
+#include "pong_includes.h"
 
 extern bool p_game_initializeGame(void);
 extern void p_game_updateGame(const float timeElapsed);
