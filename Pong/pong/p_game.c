@@ -8,6 +8,8 @@
 
 #include "pong_internal.h"
 
+// TODO: Add ball and players states.
+
 void p_game_handleSceneReady(const float timeElapsed, SDL_Renderer *renderer);
 
 bool p_game_initializeGame(void) {
@@ -30,6 +32,8 @@ bool p_game_initializeGame(void) {
     if (!windowReady) {
         return false;
     }
+    
+    // TODO: Initialize game state, i.e. place ball at center, place players in opposing sides, etc.
     
     return true;
 }
