@@ -14,15 +14,187 @@ const char* WINDOW_TITLE = "Pong";
 const int WINDOW_WIDTH = 800;
 const int WINDOW_HEIGHT = 600;
 
+#pragma mark Random Number Generator
+//#region Random Number Generator
+void rng_seedRand(void) {
+    srand((unsigned int)time(NULL));
+}
+
+bool rng_flipCoin(void) {
+    return rand() % 2 == 1 ? true : false;
+}
+//#endregion
+
+#pragma mark Ball
+//#region Ball
+typedef struct Ball {
+    float x;
+    float y;
+    float xSpeed;
+    float ySpeed;
+    int size;
+    int r;
+    int g;
+    int b;
+    int a;
+} Ball;
+
+bool served = false;
+
+const int BALL_SIZE = 10;
+const float BALL_SPEED = 120;
+const int BALL_R = 255;
+const int BALL_G = 255;
+const int BALL_B = 255;
+const int BALL_A = 255;
+
+Ball ball;
+
+Ball ball_createBall(int size, float speed, int r, int g, int b, int a) {
+    Ball ball = {
+        .x = WINDOW_WIDTH / 2 - size / 2,
+        .y = WINDOW_HEIGHT / 2 - size / 2,
+        .xSpeed = speed * (rng_flipCoin() ? 1 : -1),
+        .ySpeed = speed * (rng_flipCoin() ? 1 : -1),
+        .size = size,
+        .r = r,
+        .g = g,
+        .b = b,
+        .a = a,
+    };
+    return ball;
+}
+
+void ball_updateBall(Ball *ball, float timeElapsed) {
+    
+}
+
+void ball_renderBall(SDL_Renderer *renderer, const Ball *ball) {
+    SDL_Rect rect = {
+        .x = ball->x - (ball->size / 2),
+        .y = ball->y - (ball->size / 2),
+        .w = ball->size,
+        .h = ball->size,
+    };
+    SDL_SetRenderDrawColor(renderer, ball->r, ball->g, ball->b, ball->a);
+    SDL_RenderFillRect(renderer, &rect);
+}
+//#endregion
+
+#pragma mark Player
+//#region Player
+typedef struct Player {
+    float x;
+    float y;
+    int r;
+    int g;
+    int b;
+    int a;
+    int score;
+    int up;
+    int down;
+    int left;
+    int right;
+} Player;
+
+const int PLAYER_WIDTH = 20;
+const int PLAYER_HEIGHT = 75;
+const int PLAYER_MARGIN = 10;
+const int PLAYER_SPEED = 150.0f;
+
+const int P1_X = PLAYER_MARGIN;
+const int P1_R = 255;
+const int P1_G = 0;
+const int P1_B = 0;
+const int P1_A = 255;
+
+const int P2_X = WINDOW_WIDTH - PLAYER_WIDTH - PLAYER_MARGIN;
+const int P2_R = 0;
+const int P2_G = 0;
+const int P2_B = 255;
+const int P2_A = 255;
+
+Player player1;
+Player player2;
+
+Player player_createPlayer(int x, int r, int g, int b, int a, int up, int down, int left, int right) {
+    Player player = {
+        .score = 0,
+        .x = x,
+        .y = WINDOW_HEIGHT / 2,
+        .r = r,
+        .g = g,
+        .b = b,
+        .a = a,
+        .up = up,
+        .down = down,
+        .left = left,
+        .right = right,
+    };
+    return player;
+}
+
+void player_updatePlayer(Player *player, float timeElapsed) {
+    const Uint8* keyboardState = SDL_GetKeyboardState(NULL);
+    
+    // Update player position.
+    if (keyboardState[player->up]) {
+        player->y -= PLAYER_SPEED * timeElapsed;
+    }
+    
+    if (keyboardState[player->down]) {
+        player->y += PLAYER_SPEED * timeElapsed;
+    }
+    
+    // Check if player paddle goes out of bounds.
+    if (player->y < PLAYER_HEIGHT / 2) {
+        player->y = PLAYER_HEIGHT / 2;
+    }
+    
+    if (player->y < PLAYER_HEIGHT / 2) {
+        player->y = PLAYER_HEIGHT / 2;
+    }
+    
+    if (player->y >= WINDOW_HEIGHT - PLAYER_HEIGHT / 2) {
+        player->y = WINDOW_HEIGHT - PLAYER_HEIGHT / 2;
+    }
+}
+
+void player_renderPlayer(SDL_Renderer *renderer, const Player *player) {
+    SDL_SetRenderDrawColor(renderer, player->r, player->g, player->b, player->a);
+    SDL_Rect rect = {
+        .x = player->x,
+        .y = player->y - PLAYER_HEIGHT / 2,
+        .w = PLAYER_WIDTH,
+        .h = PLAYER_HEIGHT,
+    };
+    SDL_RenderFillRect(renderer, &rect);
+}
+//#endregion
+
+#pragma mark Main
+
 // TODO: Prepare ball, paddles, score, etc.
 void main_handleGameInitialize(SDL_Renderer *renderer, SDL_Window *window) {
+    ball = ball_createBall(BALL_SIZE, BALL_SPEED, BALL_R, BALL_G, BALL_B, BALL_A);
+    player1 = player_createPlayer(P1_X, P1_R, P1_G, P1_B, P1_A, SDL_SCANCODE_W, SDL_SCANCODE_S, 0, 0);
+    player2 = player_createPlayer(P2_X, P2_R, P2_G, P2_B, P2_A, SDL_SCANCODE_UP, SDL_SCANCODE_DOWN, 0, 0);
 }
 
 // TODO: Change ball position, paddle position, score value, etc.
 void main_handleGameUpdate(SDL_Renderer *renderer, SDL_Window *window, const float timeElapsed) {
+    ball_updateBall(&ball, timeElapsed);
+    ball_renderBall(renderer, &ball);
+    
+    player_updatePlayer(&player1, timeElapsed);
+    player_renderPlayer(renderer, &player1);
+    
+    player_updatePlayer(&player2, timeElapsed);
+    player_renderPlayer(renderer, &player2);
 }
 
 int main(int argc, const char * argv[]) {
+    rng_seedRand();
     atexit(game_shutdownGame);
     
     bool initialized = game_initializeGame(WINDOW_TITLE, WINDOW_WIDTH, WINDOW_HEIGHT, main_handleGameInitialize);
