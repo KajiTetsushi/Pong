@@ -1,17 +1,17 @@
 //
-//  app_game.c
+//  game.c
 //  Pong
 //
 //  Created by Kaji Tetsushi on 9/19/22.
 //  Copyright © 2022 Kaji Tetsushi. All rights reserved.
 //
 
-#include "app_game.h"
+#include "game.h"
 
 SDL_Renderer *renderer;
 SDL_Window *window;
 
-bool app_game_initializeGame(const char *title, const int w, const int h, void (*onGameInitialize)(void)) {
+bool game_initializeGame(const char *title, const int w, const int h, void (*onGameInitialize)(void)) {
     // Initialize core subsystems.
     int initialized = SDL_Init(SDL_INIT_VIDEO);
     if (initialized != 0) {
@@ -43,7 +43,7 @@ bool app_game_initializeGame(const char *title, const int w, const int h, void (
     return true;
 }
 
-void app_game_updateGame(const float timeElapsed, void (*onGameUpdate)(const float timeElapsed, SDL_Renderer *renderer)) {
+void game_updateGame(const float timeElapsed, void (*onGameUpdate)(const float timeElapsed, SDL_Renderer *renderer)) {
     SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
     SDL_RenderClear(renderer);
     
@@ -54,7 +54,7 @@ void app_game_updateGame(const float timeElapsed, void (*onGameUpdate)(const flo
     SDL_RenderPresent(renderer);
 }
 
-void app_game_shutdownGame(void) {
+void game_shutdownGame(void) {
     if (renderer) {
         SDL_DestroyRenderer(renderer);
     }

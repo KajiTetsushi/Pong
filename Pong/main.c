@@ -8,7 +8,7 @@
 
 #include <stdbool.h>
 #include <SDL2/SDL.h>
-#include "app/app_game.h"
+#include "game/game.h"
 
 const char* WINDOW_TITLE = "Pong";
 const int WINDOW_WIDTH = 800;
@@ -23,9 +23,9 @@ void main_handleGameUpdate(const float timeElapsed, SDL_Renderer *renderer) {
 }
 
 int main(int argc, const char * argv[]) {
-    atexit(app_game_shutdownGame);
+    atexit(game_shutdownGame);
     
-    bool initialized = app_game_initializeGame(WINDOW_TITLE, WINDOW_WIDTH, WINDOW_HEIGHT, main_handleGameInitialize);
+    bool initialized = game_initializeGame(WINDOW_TITLE, WINDOW_WIDTH, WINDOW_HEIGHT, main_handleGameInitialize);
     if (!initialized) {
         exit(1);
     }
@@ -43,11 +43,11 @@ int main(int argc, const char * argv[]) {
 
         Uint32 currentTick = SDL_GetTicks();
         float timeElapsed = (currentTick - lastTick) / 1000.0f;
-        app_game_updateGame(timeElapsed, main_handleGameUpdate);
+        game_updateGame(timeElapsed, main_handleGameUpdate);
         lastTick = currentTick;
     }
 
-    app_game_shutdownGame();
+    game_shutdownGame();
     
     return 0;
 }
