@@ -17,6 +17,9 @@
 		09B3C72127C2B3B2008DDEAE /* p_window.c in Sources */ = {isa = PBXBuildFile; fileRef = 09B3C72027C2B3B1008DDEAE /* p_window.c */; };
 		09B3C73027CBDB31008DDEAE /* c_color.c in Sources */ = {isa = PBXBuildFile; fileRef = 09B3C72F27CBDB31008DDEAE /* c_color.c */; };
 		09B3C73627CBE5B3008DDEAE /* c_rng.c in Sources */ = {isa = PBXBuildFile; fileRef = 09B3C73527CBE5B3008DDEAE /* c_rng.c */; };
+		09B3C73B27CBEB35008DDEAE /* c_vector2.c in Sources */ = {isa = PBXBuildFile; fileRef = 09B3C73A27CBEB35008DDEAE /* c_vector2.c */; };
+		09B3C746282542D3008DDEAE /* c_rigidbody.c in Sources */ = {isa = PBXBuildFile; fileRef = 09B3C745282542D3008DDEAE /* c_rigidbody.c */; };
+		09B3C74C28254A76008DDEAE /* p_ball.c in Sources */ = {isa = PBXBuildFile; fileRef = 09B3C74B28254A76008DDEAE /* p_ball.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -43,13 +46,18 @@
 		09B3C71E27C2B38E008DDEAE /* p_subsystems.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = p_subsystems.c; sourceTree = "<group>"; };
 		09B3C72027C2B3B1008DDEAE /* p_window.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = p_window.c; sourceTree = "<group>"; };
 		09B3C72227C2B945008DDEAE /* pong_internal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = pong_internal.h; sourceTree = "<group>"; };
-		09B3C73F27CBF463008DDEAE /* pong_includes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = pong_includes.h; sourceTree = "<group>"; };
 		09B3C72A27CBAECE008DDEAE /* core.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = core.h; sourceTree = "<group>"; };
 		09B3C72E27CBDB31008DDEAE /* c_color.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = c_color.h; sourceTree = "<group>"; };
 		09B3C72F27CBDB31008DDEAE /* c_color.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = c_color.c; sourceTree = "<group>"; };
 		09B3C73427CBE5B3008DDEAE /* c_rng.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = c_rng.h; sourceTree = "<group>"; };
 		09B3C73527CBE5B3008DDEAE /* c_rng.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = c_rng.c; sourceTree = "<group>"; };
 		09B3C73827CBE890008DDEAE /* core_includes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = core_includes.h; sourceTree = "<group>"; };
+		09B3C73927CBEB35008DDEAE /* c_vector2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = c_vector2.h; sourceTree = "<group>"; };
+		09B3C73A27CBEB35008DDEAE /* c_vector2.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = c_vector2.c; sourceTree = "<group>"; };
+		09B3C73F27CBF463008DDEAE /* pong_includes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = pong_includes.h; sourceTree = "<group>"; };
+		09B3C744282542D3008DDEAE /* c_rigidbody.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = c_rigidbody.h; sourceTree = "<group>"; };
+		09B3C745282542D3008DDEAE /* c_rigidbody.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = c_rigidbody.c; sourceTree = "<group>"; };
+		09B3C74B28254A76008DDEAE /* p_ball.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = p_ball.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +112,7 @@
 		09B3C6D627C2748B008DDEAE /* pong */ = {
 			isa = PBXGroup;
 			children = (
+				09B3C74B28254A76008DDEAE /* p_ball.c */,
 				09B3C70C27C2AF6F008DDEAE /* p_game.c */,
 				09B3C71A27C2B2FE008DDEAE /* p_renderer.c */,
 				09B3C71C27C2B357008DDEAE /* p_scene.c */,
@@ -121,8 +130,12 @@
 			children = (
 				09B3C72F27CBDB31008DDEAE /* c_color.c */,
 				09B3C72E27CBDB31008DDEAE /* c_color.h */,
+				09B3C745282542D3008DDEAE /* c_rigidbody.c */,
+				09B3C744282542D3008DDEAE /* c_rigidbody.h */,
 				09B3C73527CBE5B3008DDEAE /* c_rng.c */,
 				09B3C73427CBE5B3008DDEAE /* c_rng.h */,
+				09B3C73A27CBEB35008DDEAE /* c_vector2.c */,
+				09B3C73927CBEB35008DDEAE /* c_vector2.h */,
 				09B3C72A27CBAECE008DDEAE /* core.h */,
 				09B3C73827CBE890008DDEAE /* core_includes.h */,
 			);
@@ -187,10 +200,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				09B3C73027CBDB31008DDEAE /* c_color.c in Sources */,
+				09B3C746282542D3008DDEAE /* c_rigidbody.c in Sources */,
 				09B3C73627CBE5B3008DDEAE /* c_rng.c in Sources */,
+				09B3C73B27CBEB35008DDEAE /* c_vector2.c in Sources */,
 				09B3C70D27C2AF6F008DDEAE /* p_game.c in Sources */,
 				09B3C71B27C2B2FE008DDEAE /* p_renderer.c in Sources */,
 				09B3C71D27C2B357008DDEAE /* p_scene.c in Sources */,
+				09B3C74C28254A76008DDEAE /* p_ball.c in Sources */,
 				09B3C71F27C2B38E008DDEAE /* p_subsystems.c in Sources */,
 				09B3C72127C2B3B2008DDEAE /* p_window.c in Sources */,
 				09B3C6B027B784B5008DDEAE /* main.c in Sources */,

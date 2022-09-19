@@ -10,6 +10,21 @@
 
 // TODO: Add ball and players states.
 
+RigidBody ball;
+
+typedef struct Player {
+    int number;
+    int score;
+    RigidBody paddle;
+} Player;
+
+Player player1;
+Player player2;
+
+void p_player_initializePlayer(Player *player);
+void p_player_renderPlayer(const Player *player);
+void p_player_updatePlayer(Player *player, const float timeElapsed);
+
 void p_game_handleSceneReady(const float timeElapsed, SDL_Renderer *renderer);
 
 bool p_game_initializeGame(void) {
@@ -34,6 +49,9 @@ bool p_game_initializeGame(void) {
     }
     
     // TODO: Initialize game state, i.e. place ball at center, place players in opposing sides, etc.
+    p_ball_initializeBall(&ball);
+    p_player_initializePlayer(&player1);
+    p_player_initializePlayer(&player2);
     
     return true;
 }
@@ -50,4 +68,24 @@ void p_game_shutdownGame(void) {
 
 void p_game_handleSceneReady(const float timeElapsed, SDL_Renderer *renderer) {
     // TODO: Add update and render logic for ball and paddles.
+    p_ball_updateBall(&ball, timeElapsed);
+    p_ball_renderBall(&ball);
+    
+    p_player_renderPlayer(&player1);
+    p_player_renderPlayer(&player2);
+}
+
+void p_player_initializePlayer(Player *player) {
+    
+}
+
+void p_player_renderPlayer(const Player *player) {
+    SDL_Rect rect = {
+    };
+    SDL_SetRenderDrawColor(p_renderer_getRenderer(), player->paddle.color.r, player->paddle.color.g, player->paddle.color.b, player->paddle.color.a);
+    SDL_RenderFillRect(p_renderer_getRenderer(), &rect);
+}
+
+void p_player_updatePlayer(Player *player, const float timeElapsed) {
+
 }
