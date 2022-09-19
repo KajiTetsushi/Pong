@@ -66,13 +66,22 @@ Ball ball_createBall(int size, float speed, int r, int g, int b, int a) {
 }
 
 void ball_updateBall(Ball *ball, float timeElapsed) {
+    if (!served) {
+        ball->x = WINDOW_WIDTH / 2;
+        ball->y = WINDOW_HEIGHT / 2;
+        return;
+    }
     
+    ball->x += ball->xSpeed * timeElapsed;
+    ball->y += ball->ySpeed * timeElapsed;
 }
 
 void ball_renderBall(SDL_Renderer *renderer, const Ball *ball) {
+    int ballHalfSize = ball->size / 2;
+    
     SDL_Rect rect = {
-        .x = ball->x - (ball->size / 2),
-        .y = ball->y - (ball->size / 2),
+        .x = ball->x - ballHalfSize,
+        .y = ball->y - ballHalfSize,
         .w = ball->size,
         .h = ball->size,
     };
@@ -172,6 +181,53 @@ void player_renderPlayer(SDL_Renderer *renderer, const Player *player) {
 }
 //#endregion
 
+#pragma mark Court
+//#region Court
+const int SCORE_POINTS = 100;
+
+void court_incrementPlayerScore(SDL_Window *window, Player *player, int points) {
+    player->score += points;
+    
+    char *fmt = "Player 1: %d | Player 2: %d";
+    int len = snprintf(NULL, 0, fmt, player1.score, player2.score);
+    char buf[len + 1];
+    snprintf(buf, len + 1, fmt, player1.score, player2.score);
+    SDL_SetWindowTitle(window, buf);
+}
+
+void court_updateCourt(SDL_Window *window, Ball *ball, float timeElapsed) {
+    const Uint8* keyboardState = SDL_GetKeyboardState(NULL);
+    
+    if (keyboardState[SDL_SCANCODE_SPACE]) {
+        served = true;
+    }
+    
+    int ballHalfSize = ball->size / 2;
+    
+    if (ball->x < ballHalfSize) {
+        served = false;
+        ball->xSpeed = fabs(ball->xSpeed) * (rng_flipCoin() ? 1 : -1);
+        ball->ySpeed = fabs(ball->ySpeed) * (rng_flipCoin() ? 1 : -1);
+        court_incrementPlayerScore(window, &player2, SCORE_POINTS);
+        return;
+    }
+    if (ball->x > WINDOW_WIDTH - ballHalfSize) {
+        served = false;
+        ball->xSpeed = fabs(ball->xSpeed) * (rng_flipCoin() ? 1 : -1);
+        ball->ySpeed = fabs(ball->ySpeed) * (rng_flipCoin() ? 1 : -1);
+        court_incrementPlayerScore(window, &player1, SCORE_POINTS);
+        return;
+    }
+    
+    if (ball->y < ballHalfSize) {
+        ball->ySpeed = fabs(ball->ySpeed);
+    }
+    if (ball->y > WINDOW_HEIGHT - ballHalfSize) {
+        ball->ySpeed = -fabs(ball->ySpeed);
+    }
+}
+//#endregion
+
 #pragma mark Main
 
 // TODO: Prepare ball, paddles, score, etc.
@@ -191,6 +247,8 @@ void main_handleGameUpdate(SDL_Renderer *renderer, SDL_Window *window, const flo
     
     player_updatePlayer(&player2, timeElapsed);
     player_renderPlayer(renderer, &player2);
+    
+    court_updateCourt(window, &ball, timeElapsed);
 }
 
 int main(int argc, const char * argv[]) {
