@@ -220,6 +220,7 @@ void court_updateCourt(SDL_Window *window, Ball *ball, float timeElapsed) {
     };
     
     if (SDL_HasIntersection(&ballRect, &player1Rect)) {
+        // TODO: Branch out here. When the ball collides with the sides instead of the face the paddle, flip ySpeed instead of xSpeed.
         // Ball goes to the right, but doesn't change vertical direction.
         ball->xSpeed = fabs(ball->xSpeed);
     }
@@ -232,6 +233,7 @@ void court_updateCourt(SDL_Window *window, Ball *ball, float timeElapsed) {
     };
     
     if (SDL_HasIntersection(&ballRect, &player2Rect)) {
+        // TODO: Branch out here. When the ball collides with the sides instead of the face the paddle, flip ySpeed instead of xSpeed.
         // Ball goes to the left, but doesn't change vertical direction.
         ball->xSpeed = -fabs(ball->xSpeed);
     }
