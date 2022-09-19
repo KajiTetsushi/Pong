@@ -204,6 +204,38 @@ void court_updateCourt(SDL_Window *window, Ball *ball, float timeElapsed) {
     
     int ballHalfSize = ball->size / 2;
     
+    // Check if ball rect overlaps with either player's rect
+    SDL_Rect ballRect = {
+        .x = ball->x - ballHalfSize,
+        .y = ball->y - ballHalfSize,
+        .w = ball->size,
+        .h = ball->size,
+    };
+    
+    SDL_Rect player1Rect = {
+        .x = P1_X,
+        .y = (int)(player1.y) - PLAYER_HEIGHT / 2,
+        .w = PLAYER_WIDTH,
+        .h = PLAYER_HEIGHT,
+    };
+    
+    if (SDL_HasIntersection(&ballRect, &player1Rect)) {
+        // Ball goes to the right, but doesn't change vertical direction.
+        ball->xSpeed = fabs(ball->xSpeed);
+    }
+    
+    SDL_Rect player2Rect = {
+        .x = P2_X,
+        .y = (int)(player2.y) - PLAYER_HEIGHT / 2,
+        .w = PLAYER_WIDTH,
+        .h = PLAYER_HEIGHT,
+    };
+    
+    if (SDL_HasIntersection(&ballRect, &player2Rect)) {
+        // Ball goes to the left, but doesn't change vertical direction.
+        ball->xSpeed = -fabs(ball->xSpeed);
+    }
+    
     if (ball->x < ballHalfSize) {
         served = false;
         ball->xSpeed = fabs(ball->xSpeed) * (rng_flipCoin() ? 1 : -1);
