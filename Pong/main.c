@@ -19,7 +19,7 @@ void main_handleGameInitialize(SDL_Renderer *renderer, SDL_Window *window) {
 }
 
 // TODO: Change ball position, paddle position, score value, etc.
-void main_handleGameUpdate(const float timeElapsed, SDL_Renderer *renderer, SDL_Window *window) {
+void main_handleGameUpdate(SDL_Renderer *renderer, SDL_Window *window, const float timeElapsed) {
 }
 
 int main(int argc, const char * argv[]) {

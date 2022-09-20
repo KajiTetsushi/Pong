@@ -43,12 +43,12 @@ bool game_initializeGame(const char *title, const int w, const int h, void (*onG
     return true;
 }
 
-void game_updateGame(const float timeElapsed, void (*onGameUpdate)(const float timeElapsed, SDL_Renderer *renderer, SDL_Window *window)) {
+void game_updateGame(const float timeElapsed, void (*onGameUpdate)(SDL_Renderer *renderer, SDL_Window *window, const float timeElapsed)) {
     SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
     SDL_RenderClear(renderer);
     
     if (onGameUpdate) {
-        onGameUpdate(timeElapsed, renderer, window);
+        onGameUpdate(renderer, window, timeElapsed);
     }
     
     SDL_RenderPresent(renderer);
