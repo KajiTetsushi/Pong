@@ -15,11 +15,11 @@ const int WINDOW_WIDTH = 800;
 const int WINDOW_HEIGHT = 600;
 
 // TODO: Prepare ball, paddles, score, etc.
-void main_handleGameInitialize() {
+void main_handleGameInitialize(SDL_Renderer *renderer, SDL_Window *window) {
 }
 
 // TODO: Change ball position, paddle position, score value, etc.
-void main_handleGameUpdate(const float timeElapsed, SDL_Renderer *renderer) {
+void main_handleGameUpdate(const float timeElapsed, SDL_Renderer *renderer, SDL_Window *window) {
 }
 
 int main(int argc, const char * argv[]) {

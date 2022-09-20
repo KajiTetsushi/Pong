@@ -11,7 +11,7 @@
 SDL_Renderer *renderer;
 SDL_Window *window;
 
-bool game_initializeGame(const char *title, const int w, const int h, void (*onGameInitialize)(void)) {
+bool game_initializeGame(const char *title, const int w, const int h, void (*onGameInitialize)(SDL_Renderer *renderer, SDL_Window *window)) {
     // Initialize core subsystems.
     int initialized = SDL_Init(SDL_INIT_VIDEO);
     if (initialized != 0) {
@@ -37,18 +37,18 @@ bool game_initializeGame(const char *title, const int w, const int h, void (*onG
     }
     
     if (onGameInitialize) {
-        onGameInitialize();
+        onGameInitialize(renderer, window);
     }
     
     return true;
 }
 
-void game_updateGame(const float timeElapsed, void (*onGameUpdate)(const float timeElapsed, SDL_Renderer *renderer)) {
+void game_updateGame(const float timeElapsed, void (*onGameUpdate)(const float timeElapsed, SDL_Renderer *renderer, SDL_Window *window)) {
     SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
     SDL_RenderClear(renderer);
     
     if (onGameUpdate) {
-        onGameUpdate(timeElapsed, renderer);
+        onGameUpdate(timeElapsed, renderer, window);
     }
     
     SDL_RenderPresent(renderer);

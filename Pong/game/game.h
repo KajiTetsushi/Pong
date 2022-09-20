@@ -12,8 +12,8 @@
 #include <SDL2/SDL.h>
 #include <stdbool.h>
 
-extern bool game_initializeGame(const char *title, const int w, const int h, void (*onGameInitialize)(void));
-extern void game_updateGame(const float timeElapsed, void (*onGameUpdate)(const float timeElapsed, SDL_Renderer *renderer));
+extern bool game_initializeGame(const char *title, const int w, const int h, void (*onGameInitialize)(SDL_Renderer *renderer, SDL_Window *window));
+extern void game_updateGame(const float timeElapsed, void (*onGameUpdate)(const float timeElapsed, SDL_Renderer *renderer, SDL_Window *window));
 extern void game_shutdownGame(void);
 
 #endif /* game_h */
