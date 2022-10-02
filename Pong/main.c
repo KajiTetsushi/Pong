@@ -195,6 +195,44 @@ void court_incrementPlayerScore(SDL_Window *window, Player *player, int points) 
     SDL_SetWindowTitle(window, buf);
 }
 
+// Bugs:
+// 1. Corners make the ball travel parallel to the length of the paddle.
+// 2. Sides sometimes make the ball clip into the paddle.
+// TODO: Fix this. https://stackoverflow.com/questions/56606799/how-to-detect-the-side-on-which-collision-occured
+void court_bounceBallFromPlayer(Ball *ball, Player *player) {
+    // Left side collision
+    if (
+        ball->x + BALL_SIZE / 2 <= player->x - PLAYER_WIDTH / 2
+    ) {
+        ball->xSpeed = -(ball->xSpeed);
+        return;
+    }
+    
+    // Right side collision
+    if (
+        ball->x - BALL_SIZE / 2 >= player->x + PLAYER_WIDTH / 2
+    ) {
+        ball->xSpeed = -(ball->xSpeed);
+        return;
+    }
+    
+    // Top side collision
+    if (
+        ball->y - BALL_SIZE / 2 <= player->y + PLAYER_HEIGHT / 2
+    ) {
+        ball->ySpeed = -(ball->ySpeed);
+        return;
+    }
+    
+    // Bottom side collision
+    if (
+        ball->x - BALL_SIZE / 2 >= player->x + PLAYER_WIDTH / 2
+    ) {
+        ball->ySpeed = -(ball->ySpeed);
+        return;
+    }
+}
+
 void court_updateCourt(SDL_Window *window, Ball *ball, float timeElapsed) {
     const Uint8* keyboardState = SDL_GetKeyboardState(NULL);
     
@@ -222,7 +260,7 @@ void court_updateCourt(SDL_Window *window, Ball *ball, float timeElapsed) {
     if (SDL_HasIntersection(&ballRect, &player1Rect)) {
         // TODO: Branch out here. When the ball collides with the sides instead of the face the paddle, flip ySpeed instead of xSpeed.
         // Ball goes to the right, but doesn't change vertical direction.
-        ball->xSpeed = fabs(ball->xSpeed);
+        court_bounceBallFromPlayer(ball, &player1);
     }
     
     SDL_Rect player2Rect = {
@@ -235,7 +273,7 @@ void court_updateCourt(SDL_Window *window, Ball *ball, float timeElapsed) {
     if (SDL_HasIntersection(&ballRect, &player2Rect)) {
         // TODO: Branch out here. When the ball collides with the sides instead of the face the paddle, flip ySpeed instead of xSpeed.
         // Ball goes to the left, but doesn't change vertical direction.
-        ball->xSpeed = -fabs(ball->xSpeed);
+        court_bounceBallFromPlayer(ball, &player2);
     }
     
     if (ball->x < ballHalfSize) {
